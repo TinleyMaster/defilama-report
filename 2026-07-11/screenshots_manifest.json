@@ -1,0 +1,79 @@
+[
+  {
+    "name": "bridges_full",
+    "url": "https://defillama.com/bridges",
+    "file": "screenshots/bridges_full.png",
+    "focus": "观察跨链净流入是否向新 L2、新高性能链或特定桥集中。",
+    "opportunity_signal": "连续多日净流入放大且交易笔数同步上升，通常意味着链上活跃迁移或新叙事启动。"
+  },
+  {
+    "name": "digital_asset_treasuries_full",
+    "url": "https://defillama.com/digital-asset-treasuries",
+    "file": "screenshots/digital_asset_treasuries_full.png",
+    "focus": "跟踪上市公司和机构 Treasury 对 BTC、ETH、HYPE 等资产的配置变化。",
+    "opportunity_signal": "持仓价值和机构数量同时抬升，往往预示二级市场对相关资产和概念股的再定价。"
+  },
+  {
+    "name": "raises_full",
+    "url": "https://defillama.com/raises",
+    "file": "screenshots/raises_full.png",
+    "focus": "查看近期融资总额、轮次密度和资金向哪些赛道集中。",
+    "opportunity_signal": "某个赛道在早中期轮次快速升温，常常先于 token 行情和链上热度扩散。"
+  },
+  {
+    "name": "unlocks_full",
+    "url": "https://defillama.com/unlocks",
+    "file": "screenshots/unlocks_full.png",
+    "focus": "识别未来 7 天和 30 天的潜在抛压窗口。",
+    "opportunity_signal": "大额解锁临近但价格承接良好，通常说明资金愿意提前吸收供给。"
+  },
+  {
+    "name": "forks_full",
+    "url": "https://defillama.com/forks",
+    "file": "screenshots/forks_full.png",
+    "focus": "判断哪些协议模型被持续复制，哪些原型正在形成标准件。",
+    "opportunity_signal": "Fork TVL 占比快速抬升，通常代表某套机制正在跨链或跨生态扩散。"
+  },
+  {
+    "name": "governance_full",
+    "url": "https://defillama.com/governance",
+    "file": "screenshots/governance_full.png",
+    "focus": "观察治理提案频率和 30 天内成功提案数量。",
+    "opportunity_signal": "治理密度上升常对应费用开关、回购、激励重构或代币经济模型调整。"
+  },
+  {
+    "name": "oracles_full",
+    "url": "https://defillama.com/oracles",
+    "file": "screenshots/oracles_full.png",
+    "focus": "跟踪 Oracle TVS 集中度变化和新预言机份额上升。",
+    "opportunity_signal": "TVS 份额从龙头向新 entrant 转移时，往往伴随新链、新应用或新价格源需求释放。"
+  },
+  {
+    "name": "rwa_full",
+    "url": "https://defillama.com/rwa",
+    "file": "screenshots/rwa_full.png",
+    "focus": "观察 RWA Active Mcap、Net Flows 与资产组轮动。",
+    "opportunity_signal": "主动市值和净流入同步走强，且由单一资产扩散到多类资产时，代表 RWA beta 正在扩散。"
+  },
+  {
+    "name": "cexs_full",
+    "url": "https://defillama.com/cexs",
+    "file": "screenshots/cexs_full.png",
+    "focus": "查看 CEX 资产体量、净流入和现货交易量变化。",
+    "opportunity_signal": "现货量回升且净流入转正，通常是风险偏好回暖的早期信号。"
+  },
+  {
+    "name": "etfs_full",
+    "url": "https://defillama.com/etfs",
+    "file": "screenshots/etfs_full.png",
+    "focus": "跟踪 ETF 资金净流入，确认机构买盘是否持续。",
+    "opportunity_signal": "ETF 连续净流入与链上风险资产同步走强时，趋势延续概率通常更高。"
+  },
+  {
+    "name": "narratives_full",
+    "url": "https://defillama.com/narratives",
+    "file": "screenshots/narratives_full.png",
+    "focus": "监控市场叙事热度和叙事轮动节奏。",
+    "opportunity_signal": "叙事强度从单点扩散到多个关联赛道时，更容易出现板块级机会而非个别币种脉冲。"
+  }
+]

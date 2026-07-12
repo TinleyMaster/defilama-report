@@ -1,0 +1,139 @@
+{
+  "date": "2026-07-11",
+  "bundle_dir": "/Users/tinley/Documents/web3数据/Defilama/2026-07-11/notebooklm",
+  "heuristic": "estimated_tokens = ceil(cjk_chars + non_cjk_chars / 4)",
+  "note": "这是面向 GPT/NotebookLM 的近似值，不是模型官方精确计费值。",
+  "totals": {
+    "files": 21,
+    "chars": 91516,
+    "estimated_tokens": 27880
+  },
+  "files": [
+    {
+      "file": "index.md",
+      "chars": 583,
+      "lines": 34,
+      "estimated_tokens": 205
+    },
+    {
+      "file": "99_all_in_one.md",
+      "chars": 45550,
+      "lines": 874,
+      "estimated_tokens": 13856
+    },
+    {
+      "file": "01_market_overview.md",
+      "chars": 2151,
+      "lines": 60,
+      "estimated_tokens": 651
+    },
+    {
+      "file": "02_protocol_landscape.md",
+      "chars": 8076,
+      "lines": 68,
+      "estimated_tokens": 2088
+    },
+    {
+      "file": "03_stablecoins.md",
+      "chars": 3011,
+      "lines": 52,
+      "estimated_tokens": 767
+    },
+    {
+      "file": "04_dexs.md",
+      "chars": 2258,
+      "lines": 42,
+      "estimated_tokens": 569
+    },
+    {
+      "file": "05_fees.md",
+      "chars": 2312,
+      "lines": 42,
+      "estimated_tokens": 583
+    },
+    {
+      "file": "06_liquidations.md",
+      "chars": 594,
+      "lines": 21,
+      "estimated_tokens": 153
+    },
+    {
+      "file": "07_investment_signals.md",
+      "chars": 1878,
+      "lines": 54,
+      "estimated_tokens": 858
+    },
+    {
+      "file": "08_bridges.md",
+      "chars": 6814,
+      "lines": 81,
+      "estimated_tokens": 1777
+    },
+    {
+      "file": "09_rwa.md",
+      "chars": 7248,
+      "lines": 81,
+      "estimated_tokens": 1890
+    },
+    {
+      "file": "10_quality_signals.md",
+      "chars": 687,
+      "lines": 20,
+      "estimated_tokens": 253
+    },
+    {
+      "file": "11_watchlist_pages.md",
+      "chars": 2780,
+      "lines": 62,
+      "estimated_tokens": 1398
+    },
+    {
+      "file": "12_cexs.md",
+      "chars": 1352,
+      "lines": 31,
+      "estimated_tokens": 485
+    },
+    {
+      "file": "13_etfs.md",
+      "chars": 754,
+      "lines": 30,
+      "estimated_tokens": 255
+    },
+    {
+      "file": "14_raises.md",
+      "chars": 857,
+      "lines": 28,
+      "estimated_tokens": 315
+    },
+    {
+      "file": "15_unlocks.md",
+      "chars": 1253,
+      "lines": 39,
+      "estimated_tokens": 400
+    },
+    {
+      "file": "16_digital_asset_treasuries.md",
+      "chars": 1161,
+      "lines": 31,
+      "estimated_tokens": 423
+    },
+    {
+      "file": "17_oracles.md",
+      "chars": 652,
+      "lines": 29,
+      "estimated_tokens": 298
+    },
+    {
+      "file": "18_forks.md",
+      "chars": 720,
+      "lines": 29,
+      "estimated_tokens": 308
+    },
+    {
+      "file": "19_governance.md",
+      "chars": 825,
+      "lines": 32,
+      "estimated_tokens": 348
+    }
+  ]
+}

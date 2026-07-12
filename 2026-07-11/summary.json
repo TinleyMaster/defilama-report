@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-07-11T12:25:37.319Z",
+  "folder": "2026-07-11",
+  "sectionCounts": {
+    "protocols": 7819,
+    "chains": 474,
+    "stablecoins": 410,
+    "dexPages": 1226,
+    "feePages": 2391,
+    "liquidationPages": 4,
+    "protocolCategories": 101,
+    "protocolRoutes": 7819
+  },
+  "sources": [
+    {
+      "name": "app_metadata_total_tracked_by_metric",
+      "url": "https://api.llama.fi/config/smol/appMetadata-totalTrackedByMetric.json"
+    },
+    {
+      "name": "protocols",
+      "url": "https://api.llama.fi/protocols"
+    },
+    {
+      "name": "chains",
+      "url": "https://api.llama.fi/chains"
+    },
+    {
+      "name": "stablecoins",
+      "url": "https://stablecoins.llama.fi/stablecoins?includePrices=true"
+    },
+    {
+      "name": "dexs_overview",
+      "url": "https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyVolume"
+    },
+    {
+      "name": "fees_overview",
+      "url": "https://api.llama.fi/overview/fees?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyFees"
+    },
+    {
+      "name": "liquidations_overview",
+      "url": "https://api.llama.fi/overview/liquidations?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true"
+    }
+  ],
+  "knownTopLevelSitemaps": [
+    "https://defillama.com/sitemap/static.xml",
+    "https://defillama.com/sitemap/chains.xml",
+    "https://defillama.com/sitemap/protocols.xml",
+    "https://defillama.com/sitemap/protocols-by-category.xml",
+    "https://defillama.com/sitemap/stablecoins.xml",
+    "https://defillama.com/sitemap/cexs.xml",
+    "https://defillama.com/sitemap/bridges.xml",
+    "https://defillama.com/sitemap/rwa.xml",
+    "https://defillama.com/sitemap/dat.xml",
+    "https://defillama.com/sitemap/oracles.xml",
+    "https://defillama.com/sitemap/liquidations.xml",
+    "https://defillama.com/sitemap/unlocks.xml",
+    "https://defillama.com/sitemap/governance.xml",
+    "https://defillama.com/sitemap/forks.xml",
+    "https://defillama.com/sitemap/raises.xml",
+    "https://defillama.com/sitemap/narratives.xml",
+    "https://defillama.com/sitemap/pro-dashboards.xml",
+    "https://defillama.com/research/sitemap.xml"
+  ],
+  "notes": [
+    "本次产物优先保存 DefiLlama 公开可访问的数据接口，它们覆盖了大部分协议页、链页、稳定币页和排行榜页的数据底座。",
+    "部分站内栏目存在 Cloudflare 或订阅限制，脚本会记录已使用的公开源，但不会伪造不可访问的数据。",
+    "protocol_routes.json 可直接映射到大多数协议详情页 URL。"
+  ]
+}

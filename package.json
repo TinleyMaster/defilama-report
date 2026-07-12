@@ -1,0 +1,20 @@
+{
+  "name": "defilama",
+  "version": "1.0.0",
+  "description": "Public data scraper for DefiLlama",
+  "main": "index.js",
+  "scripts": {
+    "scrape": "node scripts/scrape_defillama_public_data.js",
+    "notebooklm": "node scripts/generate_notebooklm_bundle.js",
+    "drive:upload": "node scripts/upload_notebooklm_to_drive.js",
+    "lark:upload-docs": "node scripts/upload_notebooklm_to_lark_docs.js",
+    "research-pack": "npm run scrape && npm run notebooklm",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^173.0.0"
+  }
+}

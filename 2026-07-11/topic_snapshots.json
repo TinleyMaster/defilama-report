@@ -1,0 +1,309 @@
+[
+  {
+    "slug": "cexs",
+    "title": "CEX Focus",
+    "url": "https://defillama.com/cexs",
+    "generatedFrom": "DefiLlama page snapshot",
+    "note": "适合判断市场总体风险偏好、交易活跃度和交易所层面的资金净流入。",
+    "sections": [
+      {
+        "heading": "核心观察",
+        "bullets": [
+          "头部交易所仍然是 Binance、OKX、Bybit，资产体量和衍生品未平仓规模明显领先。",
+          "部分交易所 24h 仍有正流入，但 7d 和 1m 口径出现分化，更适合看趋势而不是单日噪音。",
+          "Spot Volume 和 Open Interest 同时偏强的交易所，往往更能反映短中期风险偏好提升。"
+        ]
+      },
+      {
+        "heading": "Top CEXs",
+        "table": {
+          "headers": ["排名", "交易所", "Assets", "Clean Assets", "24h Inflows", "7d Inflows", "1m Inflows", "Spot Volume", "24h OI", "Avg Leverage"],
+          "rows": [
+            ["1", "Binance", "$134.207b", "$114.578b", "$370.42m", "$188.7m", "-$3.256b", "$6.843b", "$22.724b", "0.2x"],
+            ["2", "OKX", "$21.627b", "$21.621b", "$16.23m", "-$270.05m", "-$561.77m", "$2.405b", "$6.272b", "0.29x"],
+            ["3", "Bybit", "$13.287b", "$12.161b", "-$56.36m", "-$131.82m", "-$360.16m", "$1.494b", "$9.423b", "0.77x"],
+            ["4", "Robinhood", "$11.067b", "$11.067b", "$2,142", "$56,975", "$50.24m", "n/a", "n/a", "n/a"],
+            ["5", "Bitfinex", "$16.168b", "$9.954b", "-$48.3m", "-$336.09m", "-$97.83m", "$144.35m", "$1.005b", "0.1x"],
+            ["6", "Bitget", "$4.968b", "$4.593b", "$25.29m", "-$80.24m", "$172.26m", "$605.2m", "$6.398b", "1.39x"],
+            ["7", "MEXC", "$4.664b", "$4.113b", "$922,079", "-$31.52m", "-$124.03m", "$1.091b", "$9.158b", "2.23x"],
+            ["8", "Gate", "$3.987b", "$3.617b", "-$55.22m", "-$250.47m", "$5.61m", "$1.546b", "$8.26b", "2.28x"]
+          ]
+        }
+      }
+    ],
+    "prompts": [
+      "哪些交易所同时具备资产净流入、现货量回升和未平仓合约扩张？",
+      "CEX 的 7d/1m 资金流是否和 DEX、Fees 的链上活跃同步？",
+      "头部交易所的流入是否集中在少数平台，还是出现全市场回暖？"
+    ]
+  },
+  {
+    "slug": "etfs",
+    "title": "ETF Focus",
+    "url": "https://defillama.com/etfs",
+    "generatedFrom": "DefiLlama page snapshot",
+    "note": "适合做大级别方向确认，尤其是 BTC、ETH 和 SOL 的机构资金趋势。",
+    "sections": [
+      {
+        "heading": "Daily Stats",
+        "bullets": [
+          "日期：July 9, 2026",
+          "Bitcoin Flows：-$95.3m，AUM：$71.16b",
+          "Ethereum Flows：-$52.2m，AUM：$8.347b",
+          "Solana Flows：$5.5m，AUM：$126.25m"
+        ]
+      },
+      {
+        "heading": "Top ETFs",
+        "table": {
+          "headers": ["Ticker", "Issuer", "Flows", "AUM", "Volume"],
+          "rows": [
+            ["IBIT", "Blackrock", "$0", "$43.234b", "$1.105b"],
+            ["FBTC", "Fidelity", "-$63.3m", "$10.223b", "$139.94m"],
+            ["GBTC", "Grayscale", "$0", "$8.135b", "$57.32m"],
+            ["ETHA", "Blackrock", "-$12.7m", "$4.276b", "$295.6m"],
+            ["BTC", "Grayscale", "$0", "$3.188b", "$34.55m"],
+            ["BITB", "Bitwise", "$300,000", "$2.122b", "$26.98m"]
+          ]
+        }
+      }
+    ],
+    "prompts": [
+      "ETF 净流入是短期回撤还是趋势性转弱？",
+      "BTC、ETH、SOL 的 ETF 资金流是否给出一致方向？",
+      "当 ETF 流出而链上活跃仍强时，市场是在消化获利盘还是出现结构分化？"
+    ]
+  },
+  {
+    "slug": "raises",
+    "title": "Raises Focus",
+    "url": "https://defillama.com/raises",
+    "generatedFrom": "DefiLlama page snapshot",
+    "note": "适合追踪一级市场热度向二级与链上叙事的传导。",
+    "sections": [
+      {
+        "heading": "融资概览",
+        "bullets": [
+          "Total Funding Rounds：6888",
+          "Total Funding Amount：$137.038b",
+          "最近披露的融资轮次覆盖 Social Platform、Web3、AI、DeFi、Wallet 等方向。"
+        ]
+      },
+      {
+        "heading": "Recent Rounds",
+        "table": {
+          "headers": ["项目", "日期", "金额", "轮次", "分类", "Lead Investor"],
+          "rows": [
+            ["Watch.fun", "25 Mar 2026", "$8.6m", "Seed", "Social Platform", "Crypto.com Capital, Solana Ventures"],
+            ["AtlasOra", "25 Mar 2026", "$5m", "Public token sale", "Web3", "n/a"],
+            ["Eunice AI", "25 Mar 2026", "$8m", "Seed", "AI", "Speedinvest, Openspace Ventures, Moonfire Ventures"],
+            ["Kairos Swap", "25 Mar 2026", "$2.4m", "Seed", "DeFi", "6th Man Ventures"],
+            ["Ledger", "24 Mar 2026", "$50m", "Secondary Share Sale", "Wallet", "n/a"]
+          ]
+        }
+      }
+    ],
+    "prompts": [
+      "最近融资是否重新集中到某几个赛道，比如 AI、RWA、消费者应用或基础设施？",
+      "一级市场热度和链上叙事页、桥接资金流之间有没有交叉验证？",
+      "哪些融资更像长期建设，哪些更像短周期热点追逐？"
+    ]
+  },
+  {
+    "slug": "unlocks",
+    "title": "Unlocks Focus",
+    "url": "https://defillama.com/unlocks",
+    "generatedFrom": "DefiLlama page snapshot",
+    "note": "适合做未来 7 天和 30 天的供给压力管理，以及催化事件前后的风险过滤。",
+    "sections": [
+      {
+        "heading": "Unlock Overview",
+        "bullets": [
+          "Total Protocols Tracked：324",
+          "Upcoming Unlocks (7d)：$59.54m",
+          "Upcoming Unlocks (30d)：$1.099b",
+          "24h Top Unlocks：Canton ($23.3m), Pump ($19.2m), Aptos ($13.79m)",
+          "30d Top Unlocks：Omni Network ($409.34m), Rain ($388.27m), MemeCore ($179.02m)"
+        ]
+      },
+      {
+        "heading": "Selected Upcoming Unlocks",
+        "table": {
+          "headers": ["项目", "MCap", "Total Unlocked", "7d Post Unlock", "Next Event"],
+          "rows": [
+            ["Celestia", "$432.97m", "78.06%", "+25.96%", "$86,710 / 0.02% of float"],
+            ["peaq", "$47.48m", "38.59%", "+17.33%", "$1.87m / 3.94% of float"],
+            ["Sei", "$456.67m", "69.76%", "+1.40%", "$8.14m / 1.78% of float"],
+            ["Portal", "$87.83m", "58.1%", "+16.84%", "$753,762 / 0.86% of float"],
+            ["CyberConnect", "$34.84m", "65.45%", "+2.59%", "$2.76m / 7.92% of float"],
+            ["Arbitrum", "$825.34m", "62.73%", "+13.82%", "$12.39m / 1.5% of float"],
+            ["Kaito", "$111.04m", "37.43%", "-1.81%", "$8.14m / 7.33% of float"],
+            ["zkSync Era", "$177.04m", "29.41%", "-0.14%", "$3.14m / 1.77% of float"]
+          ]
+        }
+      },
+      {
+        "heading": "Post Unlock Price Impact",
+        "bullets": [
+          "Omni Network：-4.38%",
+          "MemeCore：+14.52%",
+          "LayerZero：-3.43%"
+        ]
+      }
+    ],
+    "prompts": [
+      "未来 30 天里，哪些大额解锁最值得提前规避或提前观察承接？",
+      "解锁后的价格表现是否说明市场已经提前定价？",
+      "大额解锁项目是否同时存在链上活跃回暖或融资催化，能够抵消供给压力？"
+    ]
+  },
+  {
+    "slug": "digital_asset_treasuries",
+    "title": "Digital Asset Treasuries Focus",
+    "url": "https://defillama.com/digital-asset-treasuries",
+    "generatedFrom": "DefiLlama page snapshot",
+    "note": "适合观察上市公司和机构对 BTC、ETH 等数字资产的配置，以及股票相对净资产的定价状态。",
+    "sections": [
+      {
+        "heading": "核心观察",
+        "bullets": [
+          "Strategy 仍然是绝对龙头，持仓价值约 $66.922b，成本基础约 $61.897b。",
+          "BitMine、Twenty One Capital、Marathon 等机构也形成第二梯队，说明企业资产负债表持币叙事仍在扩散。",
+          "mNAV 指标适合用来看相关概念股是否处于溢价、折价或接近净值定价状态。"
+        ]
+      },
+      {
+        "heading": "Top Institutions",
+        "table": {
+          "headers": ["机构", "Cost Basis", "Today's Holdings Value", "Stock Price", "Realized mNAV", "Realistic mNAV", "Max mNAV"],
+          "rows": [
+            ["Strategy, Inc.", "$61.897b", "$66.922b", "$184.42", "1.09", "1.09", "1.17"],
+            ["BitMine Immersion Technologies", "n/a", "$12.2b", "$21.18", "0.99", "0.99", "1.02"],
+            ["Twenty One Capital", "n/a", "$3.517b", "$7.96", "0.78", "0.78", "0.92"],
+            ["Marathon Digital Holdings", "n/a", "$2.87b", "$12.72", "1.69", "1.69", "2.06"],
+            ["Bullish Inc.", "n/a", "$1.994b", "$42.8", "3.26", "3.4", "3.54"],
+            ["SharpLink Gaming", "n/a", "$1.936b", "$6.96", "0.71", "0.71", "0.8"],
+            ["Galaxy Digital", "n/a", "$1.726b", "$31.38", "7.09", "7.1", "8.27"],
+            ["Riot Platforms", "n/a", "$1.679b", "$24.51", "5.52", "5.52", "6.61"]
+          ]
+        }
+      }
+    ],
+    "prompts": [
+      "哪些机构持仓扩张最可能带来二级市场重估？",
+      "mNAV 接近 1 的标的是否比高溢价标的更有性价比？",
+      "企业 Treasury 扩张和 ETF 资金流是否给出一致方向？"
+    ]
+  },
+  {
+    "slug": "oracles",
+    "title": "Oracles Focus",
+    "url": "https://defillama.com/oracles",
+    "generatedFrom": "DefiLlama page snapshot",
+    "note": "适合判断预言机赛道集中度变化，以及新 entrant 是否开始拿到真实份额。",
+    "sections": [
+      {
+        "heading": "Oracle Rankings",
+        "table": {
+          "headers": ["排名", "Oracle", "Protocols", "TVS"],
+          "rows": [
+            ["1", "Chainlink", "505", "$32.852b"],
+            ["2", "Chronicle", "12", "$7.435b"],
+            ["3", "Internal", "46", "$4.879b"],
+            ["4", "RedStone", "91", "$3.61b"],
+            ["5", "Pyth", "305", "$3.091b"],
+            ["6", "Chaos", "9", "$1.352b"]
+          ]
+        }
+      },
+      {
+        "heading": "核心观察",
+        "bullets": [
+          "Chainlink 依然在 TVS 上遥遥领先，是默认基准。",
+          "Chronicle、RedStone、Pyth 等已经拿到有意义的份额，说明预言机市场并非完全固化。",
+          "当新链或新高频应用爆发时，预言机份额变化通常会先于治理或代币表现出现。"
+        ]
+      }
+    ],
+    "prompts": [
+      "哪些预言机正在从头部协议之外拿到新的 TVS 增量？",
+      "Oracle 份额变化是否和某些新链、永续或 RWA 生态扩张同步？",
+      "哪些预言机的协议覆盖面和 TVS 不成比例，可能意味着增长弹性更大？"
+    ]
+  },
+  {
+    "slug": "forks",
+    "title": "Forks Focus",
+    "url": "https://defillama.com/forks",
+    "generatedFrom": "DefiLlama page snapshot",
+    "note": "适合识别哪些协议设计正在变成行业标准件，以及机制扩散的强度。",
+    "sections": [
+      {
+        "heading": "Fork Rankings",
+        "table": {
+          "headers": ["协议", "Forked Protocols", "Forks TVL", "Forks TVL / Original TVL"],
+          "rows": [
+            ["Aave V3", "44", "$3.927b", "27.87%"],
+            ["Uniswap V2", "745", "$2.602b", "269.41%"],
+            ["Compound V2", "147", "$1.643b", "1,164%"],
+            ["Uniswap V3", "223", "$992.29m", "55.45%"],
+            ["Sky Lending", "3", "$383.18m", "6.89%"],
+            ["Solidly", "103", "$188.97m", "1.48m%"]
+          ]
+        }
+      },
+      {
+        "heading": "核心观察",
+        "bullets": [
+          "Uniswap 和 Compound 的机制扩散非常深，说明它们已从单个协议演变为设计范式。",
+          "Aave V3 的 Fork TVL 也很可观，借贷模型仍然是最容易被复制的赛道之一。",
+          "当 Fork TVL / Original TVL 很高时，更适合去研究“范式龙头”和“复制链赢家”，而不只盯原项目。"
+        ]
+      }
+    ],
+    "prompts": [
+      "哪些协议已经从产品演化成通用范式？",
+      "Fork 扩散最强的是借贷、DEX 还是其他机制？",
+      "原型协议和复制链赢家之间，哪一侧更值得布局？"
+    ]
+  },
+  {
+    "slug": "governance",
+    "title": "Governance Focus",
+    "url": "https://defillama.com/governance",
+    "generatedFrom": "DefiLlama page snapshot",
+    "note": "适合跟踪治理活跃度，寻找费用开关、回购、激励削减和国库使用相关催化。",
+    "sections": [
+      {
+        "heading": "Governance Rankings",
+        "table": {
+          "headers": ["项目", "Proposals", "Successful", "Last 30d Proposals", "Last 30d Successful"],
+          "rows": [
+            ["Network Nervous System", "18748", "17715", "551", "540"],
+            ["WaterNeuron", "8715", "6637", "187", "182"],
+            ["CLever", "1549", "1007", "22", "19"],
+            ["OpenChat", "2312", "2101", "12", "7"],
+            ["Lido", "418", "266", "7", "6"],
+            ["Stargate DAO", "81", "81", "5", "5"],
+            ["Arbitrum DAO", "414", "413", "6", "5"],
+            ["ENS", "97", "92", "4", "3"],
+            ["Frax", "519", "457", "4", "3"]
+          ]
+        }
+      },
+      {
+        "heading": "核心观察",
+        "bullets": [
+          "治理密度高的项目，通常更容易出现代币经济模型调整或国库使用变化。",
+          "Lido、Arbitrum、ENS、Frax 这类熟悉项目的治理动态，更容易向二级市场传导。",
+          "如果某项目治理频率上升，同时 Fees 或 TVL 改善，往往值得优先跟踪。"
+        ]
+      }
+    ],
+    "prompts": [
+      "最近 30 天治理频率上升的项目里，哪些同时有基本面改善？",
+      "是否存在可能触发代币持有人价值回流的提案方向？",
+      "哪些治理活跃更像噪音，哪些更像真正的制度变更前兆？"
+    ]
+  }
+]

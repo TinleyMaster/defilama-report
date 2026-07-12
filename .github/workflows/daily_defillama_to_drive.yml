@@ -1,0 +1,42 @@
+name: daily-defillama-to-drive
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      GDRIVE_PARENT_FOLDER_ID: ${{ secrets.GDRIVE_PARENT_FOLDER_ID }}
+      GDRIVE_SERVICE_ACCOUNT_JSON: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate DefiLlama research pack
+        run: npm run research-pack
+
+      - name: Upload markdown bundle to Google Drive
+        run: npm run drive:upload
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: defillama-research-pack
+          path: |
+            20*-*-*/notebooklm/*.md
+            20*-*-*/README.md
+            20*-*-*/summary.json
+            20*-*-*/topic_snapshots.json
+            20*-*-*/notebooklm/token_report.md
+          if-no-files-found: warn

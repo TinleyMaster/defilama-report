@@ -1,0 +1,5 @@
+node_modules/
+.chrome-defillama-profile/
+.npm/
+.DS_Store
+defilama-report-upload.zip

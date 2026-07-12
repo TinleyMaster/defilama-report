@@ -1,0 +1,46 @@
+name: daily-defillama-to-lark-docs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 1 * * *"
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
+      LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
+      LARK_DRIVE_FOLDER_TOKEN: ${{ secrets.LARK_DRIVE_FOLDER_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate DefiLlama research pack
+        run: npm run research-pack
+
+      - name: Import markdown bundle to Lark docs
+        run: npm run lark:upload-docs
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: defillama-research-pack
+          path: |
+            20*-*-*/notebooklm/*.md
+            20*-*-*/README.md
+            20*-*-*/summary.json
+            20*-*-*/topic_snapshots.json
+            20*-*-*/lark_docs_manifest.json
+            20*-*-*/notebooklm/token_report.md
+          if-no-files-found: warn

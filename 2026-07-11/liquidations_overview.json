@@ -1,0 +1,285 @@
+{
+  "totalDataChart": [],
+  "totalDataChartBreakdown": [],
+  "breakdown24h": null,
+  "breakdown30d": null,
+  "chain": null,
+  "allChains": [
+    "Hyperliquid L1",
+    "Ethereum",
+    "Ink",
+    "Avalanche",
+    "Mantle",
+    "Plume Mainnet",
+    "Polygon",
+    "Sonic",
+    "Katana",
+    "BSC",
+    "Base",
+    "Arbitrum",
+    "Soneium",
+    "OP Mainnet",
+    "Fantom",
+    "Plasma",
+    "Celo",
+    "Metis",
+    "Gnosis",
+    "Scroll",
+    "Linea",
+    "ZKsync Era",
+    "MegaETH",
+    "X Layer",
+    "Canto",
+    "Fraxtal",
+    "Unichain",
+    "opBNB",
+    "Kava",
+    "Zircuit",
+    "Hemi",
+    "Abstract",
+    "Manta",
+    "Blast",
+    "Berachain",
+    "PulseChain",
+    "CORE",
+    "BSquared",
+    "Meter",
+    "zkLink Nova",
+    "Monad",
+    "ShimmerEVM",
+    "IOTA EVM",
+    "World Chain",
+    "Citrea",
+    "Etherlink",
+    "Tempo",
+    "Robinhood Chain",
+    "Flare",
+    "Stable",
+    "Mode",
+    "BOB",
+    "Flow",
+    "Data Network",
+    "Somnia",
+    "XDC",
+    "QIE",
+    "Fluent",
+    "Pharos",
+    "Igra"
+  ],
+  "total24h": 28105509,
+  "total48hto24h": 26104440,
+  "total7d": 257116256,
+  "total14dto7d": 363714102,
+  "total30d": 2401814511,
+  "total60dto30d": 5122624011,
+  "total1y": 29414611255,
+  "total7DaysAgo": 27339755,
+  "total30DaysAgo": 109997877,
+  "totalAllTime": 29414625772,
+  "change_1d": 7.67,
+  "change_7d": 2.8,
+  "change_1m": -74.45,
+  "change_7dover7d": -29.31,
+  "change_30dover30d": -53.11,
+  "protocols": [
+    {
+      "total24h": 0,
+      "total48hto24h": 250,
+      "total7d": 250,
+      "total14dto7d": 0,
+      "total30d": 250,
+      "total1y": 250,
+      "annualized1y": 45625,
+      "total7DaysAgo": 0,
+      "totalAllTime": 250,
+      "average1y": 27.77777777777778,
+      "change_1d": -100,
+      "breakdown24h": {
+        "pulse": {
+          "PHAME Protocol": 0
+        }
+      },
+      "breakdown30d": {
+        "pulse": {
+          "PHAME Protocol": 250
+        }
+      },
+      "defillamaId": "3569",
+      "name": "PHAME Protocol",
+      "displayName": "PHAME Protocol",
+      "module": "phame-protocol",
+      "category": "Derivatives",
+      "logo": "https://icons.llamao.fi/icons/protocols/phame-protocol",
+      "chains": [
+        "PulseChain"
+      ],
+      "protocolType": "protocol",
+      "methodologyURL": "https://github.com/DefiLlama/dimension-adapters/blob/master/factory/gmxV1.ts",
+      "methodology": {
+        "UserFees": "Fees paid by users",
+        "Fees": "Fees paid by users",
+        "Revenue": "Treasury and token holders revenue",
+        "ProtocolRevenue": "Fees going to treasury",
+        "HoldersRevenue": "Fees going to governance token holders",
+        "SupplySideRevenue": "LPs revenue",
+        "CollateralLiquidated": "Total USD value of collateral lost by liquidated position owners from LiquidatePosition events.",
+        "LiquidationVolume": "Total USD notional size of liquidated positions."
+      },
+      "slug": "phame-protocol",
+      "id": "3569"
+    },
+    {
+      "total24h": 0,
+      "total48hto24h": 0,
+      "total7d": 0,
+      "total14dto7d": 0,
+      "total30d": 0,
+      "total1y": 0,
+      "annualized1y": null,
+      "total7DaysAgo": 0,
+      "totalAllTime": 0,
+      "breakdown24h": {
+        "base": {
+          "Xena Finance": 0
+        }
+      },
+      "breakdown30d": {
+        "base": {
+          "Xena Finance": 0
+        }
+      },
+      "defillamaId": "3620",
+      "name": "Xena Finance",
+      "displayName": "Xena Finance",
+      "module": "xena-finance",
+      "category": "Derivatives",
+      "logo": "https://icons.llamao.fi/icons/protocols/xena-finance",
+      "chains": [
+        "Base"
+      ],
+      "protocolType": "protocol",
+      "methodologyURL": "https://github.com/DefiLlama/dimension-adapters/blob/master/liquidations/xena-finance",
+      "methodology": {
+        "UserFees": "Fees paid by users",
+        "Fees": "Fees paid by users",
+        "Revenue": "Treasury and token holders revenue",
+        "ProtocolRevenue": "Fees going to treasury",
+        "HoldersRevenue": "Fees going to governance token holders",
+        "SupplySideRevenue": "LPs revenue",
+        "CollateralLiquidated": "Total USD value of collateral lost by liquidated position owners from LiquidatePosition events.",
+        "LiquidationVolume": "Total USD notional size of liquidated positions."
+      },
+      "slug": "xena-finance",
+      "id": "3620"
+    },
+    {
+      "total24h": 28076294,
+      "total48hto24h": 26085511,
+      "total7d": 256023386,
+      "total14dto7d": 363380468,
+      "total30d": 2400388007,
+      "total60dto30d": 5122624011,
+      "total1y": 29413184751,
+      "annualized1y": 56504275969.02632,
+      "total7DaysAgo": 27267230,
+      "total30DaysAgo": 109997877,
+      "totalAllTime": 29413184751,
+      "average1y": 154806235.53157896,
+      "monthlyAverage1y": 4712301809.581264,
+      "change_1d": 7.63,
+      "change_7d": 2.97,
+      "change_1m": -74.48,
+      "change_7dover7d": -29.54,
+      "change_30dover30d": -53.14,
+      "breakdown24h": {
+        "hyperliquid": {
+          "Hyperliquid Perps": 28076294
+        }
+      },
+      "breakdown30d": {
+        "hyperliquid": {
+          "Hyperliquid Perps": 2400388007
+        }
+      },
+      "defillamaId": "5507",
+      "name": "Hyperliquid Perps",
+      "displayName": "Hyperliquid Perps",
+      "module": "hyperliquid",
+      "category": "Derivatives",
+      "logo": "https://icons.llamao.fi/icons/protocols/hyperliquid",
+      "chains": [
+        "Hyperliquid L1"
+      ],
+      "protocolType": "protocol",
+      "methodologyURL": "https://github.com/DefiLlama/dimension-adapters/blob/master/liquidations/hyperliquid.ts",
+      "methodology": {
+        "UserFees": "Fees paid by users",
+        "Fees": "Fees paid by users",
+        "Revenue": "Treasury and token holders revenue",
+        "ProtocolRevenue": "Fees going to treasury",
+        "HoldersRevenue": "Fees going to governance token holders",
+        "SupplySideRevenue": "LPs revenue",
+        "LiquidationVolume": "Total USD notional of liquidated positions, from the `amountQuote` field of ClearingHouse `Liquidation` events."
+      },
+      "parentProtocol": "parent#hyperliquid",
+      "slug": "hyperliquid-perps",
+      "linkedProtocols": [
+        "Hyperliquid",
+        "Hyperliquid Perps"
+      ],
+      "id": "5507"
+    },
+    {
+      "total24h": 14517,
+      "total48hto24h": 18679,
+      "total7d": 1092620,
+      "total14dto7d": 333634,
+      "total30d": 1426254,
+      "total1y": 1426254,
+      "annualized1y": 57842523.33333333,
+      "total7DaysAgo": 72525,
+      "totalAllTime": 1440771,
+      "average1y": 158472.66666666666,
+      "change_1d": -22.28,
+      "change_7d": -79.98,
+      "change_7dover7d": 227.49,
+      "breakdown24h": {
+        "ink": {
+          "Nado Perps": 29215
+        }
+      },
+      "breakdown30d": {
+        "ink": {
+          "Nado Perps": 1426254
+        }
+      },
+      "defillamaId": "7097",
+      "name": "Nado Perps",
+      "displayName": "Nado Perps",
+      "module": "nado",
+      "category": "Derivatives",
+      "logo": "https://icons.llamao.fi/icons/protocols/nado-perps",
+      "chains": [
+        "Ink"
+      ],
+      "protocolType": "protocol",
+      "methodologyURL": "https://github.com/DefiLlama/dimension-adapters/blob/master/liquidations/nado",
+      "methodology": {
+        "UserFees": "Fees paid by users",
+        "Fees": "Fees paid by users",
+        "Revenue": "Treasury and token holders revenue",
+        "ProtocolRevenue": "Fees going to treasury",
+        "HoldersRevenue": "Fees going to governance token holders",
+        "SupplySideRevenue": "LPs revenue",
+        "LiquidationVolume": "Total USD notional of liquidated positions, from the `amountQuote` field of ClearingHouse `Liquidation` events."
+      },
+      "parentProtocol": "parent#nado",
+      "slug": "nado-perps",
+      "linkedProtocols": [
+        "Nado",
+        "Nado Perps"
+      ],
+      "id": "7097"
+    }
+  ]
+}
