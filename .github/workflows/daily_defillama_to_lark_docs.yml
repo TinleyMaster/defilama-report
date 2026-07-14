@@ -3,7 +3,7 @@ name: daily-defillama-to-lark-docs
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 1 * * *"
+    - cron: "30 23 * * *"
 
 jobs:
   build-and-upload:
@@ -13,6 +13,7 @@ jobs:
       LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
       LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
       LARK_DRIVE_FOLDER_TOKEN: ${{ secrets.LARK_DRIVE_FOLDER_TOKEN }}
+      LARK_NOTIFY_CHAT_ID: ${{ secrets.LARK_NOTIFY_CHAT_ID }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -36,6 +37,7 @@ jobs:
             "LARK_APP_ID",
             "LARK_APP_SECRET",
             "LARK_DRIVE_FOLDER_TOKEN",
+            "LARK_NOTIFY_CHAT_ID",
           ];
 
           let missing = 0;
@@ -87,6 +89,9 @@ jobs:
 
       - name: Import markdown bundle to Lark docs
         run: npm run lark:upload-docs
+
+      - name: Send Lark group notification
+        run: npm run lark:notify-group
 
       - name: Upload workflow artifact
         uses: actions/upload-artifact@v4

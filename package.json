@@ -8,6 +8,7 @@
     "notebooklm": "node scripts/generate_notebooklm_bundle.js",
     "drive:upload": "node scripts/upload_notebooklm_to_drive.js",
     "lark:upload-docs": "node scripts/upload_notebooklm_to_lark_docs.js",
+    "lark:notify-group": "node scripts/send_lark_group_message.js",
     "research-pack": "npm run scrape && npm run notebooklm",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

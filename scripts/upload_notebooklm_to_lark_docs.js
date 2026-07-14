@@ -7,6 +7,10 @@ const DEFAULT_IMPORT_TIMEOUT_MS = 180000;
 const DEFAULT_POLL_INTERVAL_MS = 3000;
 const DEFAULT_DRIVE_PAGE_SIZE = 200;
 
+function buildFolderUrl(folderToken) {
+  return folderToken ? `https://ucnh8sxsqjc9.feishu.cn/drive/folder/${folderToken}` : "";
+}
+
 function latestDateDir(rootDir) {
   return fs
     .readdirSync(rootDir, { withFileTypes: true })
@@ -342,7 +346,7 @@ async function main() {
     target_root_folder_token: rootFolderToken,
     target_folder_token: targetFolderToken,
     target_folder_path: targetFolderPath,
-    target_folder_url: targetFolders.dayFolder.url || "",
+    target_folder_url: targetFolders.dayFolder.url || buildFolderUrl(targetFolderToken),
     target_folders: {
       year: targetFolders.yearFolder,
       month: targetFolders.monthFolder,

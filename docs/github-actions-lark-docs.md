@@ -6,11 +6,13 @@
 2. 生成当天的 NotebookLM Markdown 包
 3. 将 `notebooklm/` 目录下的 `.md` 文件导入为飞书在线文档
 4. 把导入结果写入当天目录下的 `lark_docs_manifest.json`
+5. 向指定飞书群推送一条上传完成通知
 
 ## 已添加的文件
 
 - Workflow: `.github/workflows/daily_defillama_to_lark_docs.yml`
 - 上传脚本: `scripts/upload_notebooklm_to_lark_docs.js`
+- 群通知脚本: `scripts/send_lark_group_message.js`
 
 ## Workflow 入口
 
@@ -37,6 +39,7 @@ npm run lark:upload-docs
 - 创建导入任务
 - 创建新版文档
 - 删除上传的临时文件
+- 以应用身份发送消息
 
 如果缺 scope，workflow 会在调用 API 时直接报权限错误。
 
@@ -52,9 +55,15 @@ npm run lark:upload-docs
 这一点很关键。  
 如果应用对目标根文件夹没有编辑权限，脚本就无法继续自动创建 `年/月/日` 子目录，也无法上传或导入文档。
 
+### 4. 准备接收通知的飞书群
+
+你还需要把这个应用的机器人加入到目标群聊，并拿到该群的 `chat_id`。
+
+如果应用没有在群里，或者没有“以应用身份发送消息”的权限，上传成功后也无法自动发通知。
+
 ## GitHub Secrets
 
-在 GitHub 仓库中添加这三个 secrets：
+在 GitHub 仓库中添加这四个 secrets：
 
 ### `LARK_APP_ID`
 
@@ -68,6 +77,10 @@ npm run lark:upload-docs
 
 目标飞书根文件夹的 token。
 
+### `LARK_NOTIFY_CHAT_ID`
+
+接收“上传完成”通知的飞书群 `chat_id`。
+
 ## 上传行为
 
 脚本会：
@@ -79,6 +92,7 @@ npm run lark:upload-docs
 5. 再通过导入任务把这些 Markdown 转成飞书在线文档 `docx`
 6. 导入成功后删除临时上传的 `.md` 文件
 7. 在本地生成 `lark_docs_manifest.json`，记录目录路径、文档标题、URL、token 和告警码
+8. 读取 `lark_docs_manifest.json`，向指定飞书群发送一条“上传完成”通知
 
 也就是说，飞书里最终会形成如下目录结构，并且只保留在线文档，不会额外堆一批临时 Markdown：
 
@@ -120,6 +134,8 @@ LARK_DOC_TITLE_PREFIX
 - 选择 `daily-defillama-to-lark-docs`
 - 点击 `Run workflow`
 
+当前 workflow 的定时表达式是 UTC `30 23 * * *`，对应北京时间每天 `07:30`。
+
 ## 本地手动上传
 
 如果你想先本地验证，也可以这样跑：
@@ -129,6 +145,14 @@ export LARK_APP_ID="cli_xxx"
 export LARK_APP_SECRET="xxx"
 export LARK_DRIVE_FOLDER_TOKEN="fldxxx"
 npm run lark:upload-docs -- 2026-07-12
+export LARK_NOTIFY_CHAT_ID="oc_xxx"
+npm run lark:notify-group -- 2026-07-12
+```
+
+如果你只想先预览群消息内容，可以本地 dry run：
+
+```bash
+npm run lark:notify-group -- 2026-07-12 --dry-run
 ```
 
 ## 输出文件
