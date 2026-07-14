@@ -36,6 +36,34 @@ async function parseJsonResponse(response) {
   }
 }
 
+function explainFeishuError(json, context = {}) {
+  if (!json || typeof json !== "object") return "";
+
+  const code = Number(json.code);
+  const hints = [];
+
+  if (code === 1061004) {
+    hints.push("当前飞书应用没有目标文件夹的编辑权限。");
+    if (context.folderToken) {
+      hints.push(`请确认 LARK_DRIVE_FOLDER_TOKEN 指向的是文件夹 token：${context.folderToken}。`);
+    }
+    hints.push("请在飞书侧为该应用开通云空间相关权限。");
+    hints.push("如果你使用 tenant_access_token，请把目标文件夹共享给该应用可访问的身份，并授予编辑权限。");
+    hints.push("常见做法是：先给应用开启机器人能力，再把机器人加入群组，然后把文件夹共享给该群组。");
+  }
+
+  if (code === 1069908) {
+    hints.push("导入挂载点不存在，或当前应用没有导入到该文件夹的权限。");
+    if (context.folderToken) {
+      hints.push(`请再次检查文件夹 token 是否正确：${context.folderToken}。`);
+    }
+    hints.push("请确认目标文件夹已经共享给应用可访问的身份，并具备编辑权限。");
+  }
+
+  if (!hints.length) return "";
+  return `\nHints:\n- ${hints.join("\n- ")}`;
+}
+
 async function feishuJsonRequest({ url, method = "GET", accessToken, body }) {
   const response = await fetch(url, {
     method,
@@ -48,7 +76,11 @@ async function feishuJsonRequest({ url, method = "GET", accessToken, body }) {
 
   const json = await parseJsonResponse(response);
   if (!response.ok || json.code !== 0) {
-    throw new Error(`Feishu API request failed: ${method} ${url} -> ${JSON.stringify(json)}`);
+    throw new Error(
+      `Feishu API request failed: ${method} ${url} -> ${JSON.stringify(json)}${explainFeishuError(json, {
+        folderToken: body?.point?.mount_key,
+      })}`
+    );
   }
 
   return json;
@@ -105,7 +137,11 @@ async function uploadSourceFile(accessToken, folderToken, filePath) {
 
   const json = await parseJsonResponse(response);
   if (!response.ok || json.code !== 0 || !json.data?.file_token) {
-    throw new Error(`Failed to upload markdown source file: ${JSON.stringify(json)}`);
+    throw new Error(
+      `Failed to upload markdown source file: ${JSON.stringify(json)}${explainFeishuError(json, {
+        folderToken,
+      })}`
+    );
   }
 
   return json.data.file_token;
