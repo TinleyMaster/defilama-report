@@ -436,17 +436,21 @@ function buildWatchlistPages(context) {
   lines.push("");
   lines.push("## 页面清单");
   lines.push("");
-  lines.push(
-    mdTable(
-      ["名称", "URL", "关注点", "机会信号"],
-      context.screenshotsManifest.map((item) => [
-        item.name,
-        `[${item.url}](${item.url})`,
-        item.focus,
-        item.opportunity_signal,
-      ])
-    )
-  );
+  if (context.screenshotsManifest.length) {
+    lines.push(
+      mdTable(
+        ["名称", "URL", "关注点", "机会信号"],
+        context.screenshotsManifest.map((item) => [
+          item.name || "n/a",
+          item.url ? `[${item.url}](${item.url})` : "n/a",
+          item.focus || "n/a",
+          item.opportunity_signal || "n/a",
+        ])
+      )
+    );
+  } else {
+    lines.push("- 当前运行未生成 `screenshots_manifest.json`，本页保留为后续人工观察占位。");
+  }
   lines.push("");
   lines.push("## 观察模板");
   lines.push("");
@@ -707,7 +711,7 @@ function main() {
     feesOverview: readJson(path.join(dateDir, "fees_overview.json")),
     liquidationsOverview: readJson(path.join(dateDir, "liquidations_overview.json")),
     protocolCategories: readJson(path.join(dateDir, "protocols_by_category.json")),
-    screenshotsManifest: readJson(path.join(dateDir, "screenshots_manifest.json")),
+    screenshotsManifest: readJsonIfExists(path.join(dateDir, "screenshots_manifest.json"), []),
     topicSnapshots: readJsonIfExists(path.join(dateDir, "topic_snapshots.json"), []),
     trendWatchlist: readTextIfExists(path.join(dateDir, "trend_watchlist.md")),
   };
