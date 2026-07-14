@@ -5,6 +5,7 @@ const DATE_DIR_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 const FEISHU_BASE_URL = "https://open.feishu.cn/open-apis";
 const DEFAULT_IMPORT_TIMEOUT_MS = 180000;
 const DEFAULT_POLL_INTERVAL_MS = 3000;
+const DEFAULT_DRIVE_PAGE_SIZE = 200;
 
 function latestDateDir(rootDir) {
   return fs
@@ -64,6 +65,16 @@ function explainFeishuError(json, context = {}) {
   return `\nHints:\n- ${hints.join("\n- ")}`;
 }
 
+function parseDatePathParts(dateDirName) {
+  const baseName = path.basename(dateDirName);
+  if (!DATE_DIR_PATTERN.test(baseName)) {
+    throw new Error(`Date directory must match YYYY-MM-DD: ${baseName}`);
+  }
+
+  const [year, month, day] = baseName.split("-");
+  return { year, month, day, baseName };
+}
+
 async function feishuJsonRequest({ url, method = "GET", accessToken, body }) {
   const response = await fetch(url, {
     method,
@@ -78,7 +89,7 @@ async function feishuJsonRequest({ url, method = "GET", accessToken, body }) {
   if (!response.ok || json.code !== 0) {
     throw new Error(
       `Feishu API request failed: ${method} ${url} -> ${JSON.stringify(json)}${explainFeishuError(json, {
-        folderToken: body?.point?.mount_key,
+        folderToken: body?.point?.mount_key || body?.folder_token,
       })}`
     );
   }
@@ -107,6 +118,88 @@ async function getTenantAccessToken() {
   }
 
   return json.tenant_access_token;
+}
+
+async function listFolderItems(accessToken, folderToken) {
+  let pageToken = "";
+  const items = [];
+
+  do {
+    const params = new URLSearchParams({
+      folder_token: folderToken,
+      page_size: String(DEFAULT_DRIVE_PAGE_SIZE),
+    });
+
+    if (pageToken) {
+      params.set("page_token", pageToken);
+    }
+
+    const json = await feishuJsonRequest({
+      url: `${FEISHU_BASE_URL}/drive/v1/files?${params.toString()}`,
+      accessToken,
+    });
+
+    const pageItems = Array.isArray(json.data?.files) ? json.data.files : [];
+    items.push(...pageItems);
+    pageToken = json.data?.has_more ? json.data?.next_page_token || "" : "";
+  } while (pageToken);
+
+  return items;
+}
+
+async function findChildFolderByName(accessToken, parentFolderToken, folderName) {
+  const items = await listFolderItems(accessToken, parentFolderToken);
+  return items.find((item) => item.type === "folder" && item.name === folderName) || null;
+}
+
+async function createFolder(accessToken, parentFolderToken, folderName) {
+  const json = await feishuJsonRequest({
+    url: `${FEISHU_BASE_URL}/drive/v1/files/create_folder`,
+    method: "POST",
+    accessToken,
+    body: {
+      name: folderName,
+      folder_token: parentFolderToken,
+    },
+  });
+
+  return {
+    token: json.data?.token,
+    url: json.data?.url || "",
+    name: folderName,
+    parent_token: parentFolderToken,
+    created: true,
+  };
+}
+
+async function ensureChildFolder(accessToken, parentFolderToken, folderName) {
+  const existing = await findChildFolderByName(accessToken, parentFolderToken, folderName);
+  if (existing) {
+    return {
+      token: existing.token,
+      url: existing.url || "",
+      name: existing.name,
+      parent_token: existing.parent_token || parentFolderToken,
+      created: false,
+    };
+  }
+
+  return createFolder(accessToken, parentFolderToken, folderName);
+}
+
+async function ensureDateFolders(accessToken, rootFolderToken, dateDirName) {
+  const { year, month, day, baseName } = parseDatePathParts(dateDirName);
+  const yearFolder = await ensureChildFolder(accessToken, rootFolderToken, year);
+  const monthFolder = await ensureChildFolder(accessToken, yearFolder.token, month);
+  const dayFolder = await ensureChildFolder(accessToken, monthFolder.token, day);
+
+  return {
+    yearFolder,
+    monthFolder,
+    dayFolder,
+    pathSegments: [year, month, day],
+    dateDirName: baseName,
+  };
 }
 
 async function uploadSourceFile(accessToken, folderToken, filePath) {
@@ -214,7 +307,7 @@ function buildDocTitle(dateDir, filePath) {
 async function main() {
   const rootDir = process.cwd();
   const dateDirName = process.argv[2] || process.env.LARK_UPLOAD_DATE_DIR || latestDateDir(rootDir);
-  const folderToken = requireEnv("LARK_DRIVE_FOLDER_TOKEN");
+  const rootFolderToken = requireEnv("LARK_DRIVE_FOLDER_TOKEN");
 
   if (!dateDirName) {
     throw new Error("No dated dataset directory found.");
@@ -237,9 +330,24 @@ async function main() {
   }
 
   const accessToken = await getTenantAccessToken();
+  const targetFolders = await ensureDateFolders(accessToken, rootFolderToken, path.basename(dateDir));
+  const targetFolderToken = targetFolders.dayFolder.token;
+  const targetFolderPath = targetFolders.pathSegments.join("/");
+
+  console.log(`Resolved Lark target folder path: ${targetFolderPath}`);
+  console.log(`Target folder token: ${targetFolderToken}`);
+
   const manifest = {
     date_dir: path.basename(dateDir),
-    target_folder_token: folderToken,
+    target_root_folder_token: rootFolderToken,
+    target_folder_token: targetFolderToken,
+    target_folder_path: targetFolderPath,
+    target_folder_url: targetFolders.dayFolder.url || "",
+    target_folders: {
+      year: targetFolders.yearFolder,
+      month: targetFolders.monthFolder,
+      day: targetFolders.dayFolder,
+    },
     generated_at: new Date().toISOString(),
     files: [],
   };
@@ -250,10 +358,10 @@ async function main() {
 
     console.log(`Importing ${path.basename(filePath)} -> ${title}`);
 
-    const sourceFileToken = await uploadSourceFile(accessToken, folderToken, filePath);
+    const sourceFileToken = await uploadSourceFile(accessToken, targetFolderToken, filePath);
 
     try {
-      const ticket = await createImportTask(accessToken, folderToken, sourceFileToken, title, extension);
+      const ticket = await createImportTask(accessToken, targetFolderToken, sourceFileToken, title, extension);
       const result = await waitForImportResult(accessToken, ticket);
 
       manifest.files.push({
